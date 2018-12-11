@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="340.0" prefWidth="600.0" style="-fx-background-color: #330000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.design.login.LoginDisplayController">
+   <children>
+      <ImageView fitHeight="451.0" fitWidth="607.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../data/images/bg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="379.0" fitWidth="267.0" layoutX="14.0" layoutY="37.0" opacity="0.5" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../data/images/logo.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="304.0" layoutY="29.0" prefHeight="292.0" prefWidth="254.0" style="-fx-background-color: #330000;">
+         <children>
+            <TextField fx:id="logUsername" layoutX="50.0" layoutY="102.0" promptText="Username" style="-fx-background-color: #FFFF44;" />
+            <TextField fx:id="logPassword" layoutX="50.0" layoutY="148.0" promptText="Password" style="-fx-background-color: #FFFF44;" />
+            <ButtonBar layoutX="74.0" layoutY="219.0" prefHeight="40.0" prefWidth="102.0" />
+            <CheckBox fx:id="logRemember" layoutX="50.0" layoutY="192.0" mnemonicParsing="false" prefHeight="6.0" prefWidth="102.0" text="Remember me" textFill="#ffff44" />
+            <Text fill="#ffff44" layoutX="91.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign in" wrappingWidth="66.13671875">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Button fx:id="logLogin" layoutX="131.0" layoutY="247.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="91.0" style="-fx-background-color: #FFFF44;" text="Login" />
+            <Button fx:id="logRegister" layoutX="29.0" layoutY="247.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #FFFF44;" text="Register" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

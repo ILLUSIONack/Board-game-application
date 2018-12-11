@@ -1,2 +1,2 @@
 # Project-A
-Digital component for the project 
+Digital component for the project
