@@ -11,6 +11,7 @@ public class MainDisplayController {
 
     public ImageView secondDiceImage;
     public ImageView firstDiceImage;
+    public ImageView spinner;
 
     private Random random = new Random();
 
@@ -42,6 +43,25 @@ public class MainDisplayController {
 
     private DiceRollData getDiceData() {
         return DiceRollData.values()[random.nextInt(DiceRollData.values().length)];
+    }
+
+    public void onSpinnerClick(){
+        TimerTask task = new TimerTask() {
+            int counter = 0;
+            @Override
+            public void run() {
+                if(counter == 33) {
+                    cancel();
+                }
+                int x = random.ints(20, 30).iterator().nextInt();
+                spinner.setRotate(spinner.getRotate() + x);
+                counter++;
+
+            }
+        };
+
+        Timer timer = new Timer();
+        timer.schedule(task, 20, 20);
     }
 
 

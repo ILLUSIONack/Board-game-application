@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="454.0" prefWidth="723.0" style="-fx-background-color: #202;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.design.main.MainDisplayController">
+<AnchorPane prefHeight="454.0" prefWidth="723.0" style="-fx-background-color: #202;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.design.main.MainDisplayController">
     <children>
       <ImageView fitHeight="426.0" fitWidth="723.0" layoutY="23.0" opacity="0.91" pickOnBounds="true">
          <image>
@@ -59,7 +59,7 @@
                 <DropShadow />
             </effect>
          <children>
-            <ImageView fx:id="spinner" fitHeight="189.0" fitWidth="184.0" layoutX="22.0" layoutY="-6.0" pickOnBounds="true">
+            <ImageView fx:id="spinner" fitHeight="189.0" fitWidth="184.0" layoutX="22.0" layoutY="-6.0" onMouseClicked="#onSpinnerClick" pickOnBounds="true">
                <image>
                   <Image url="@../../../data/images/Spinner.png" />
                </image>
