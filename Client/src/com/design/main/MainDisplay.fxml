@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.DropShadow?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="454.0" prefWidth="723.0" style="-fx-background-color: #202;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.design.main.MainDisplayController">
+<AnchorPane prefHeight="454.0" prefWidth="723.0" style="-fx-background-color: #202;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.design.main.MainDisplayController">
     <children>
       <ImageView fitHeight="426.0" fitWidth="723.0" layoutY="23.0" opacity="0.91" pickOnBounds="true">
          <image>
@@ -34,11 +35,17 @@
                <effect>
                   <DropShadow />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
                 </ImageView>
                 <ImageView fx:id="secondDiceImage" fitHeight="150.0" fitWidth="200.0" layoutX="31.0" layoutY="217.0" onMouseClicked="#onDiceClick" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../../data/images/dice-six-faces-six.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
             </children>
         </AnchorPane>
@@ -63,6 +70,9 @@
                <image>
                   <Image url="@../../../data/images/Spinner.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Label layoutX="105.0" layoutY="126.0" prefHeight="38.0" prefWidth="49.0" text="^">
                <textFill>
@@ -84,12 +94,16 @@
                 <DropShadow />
             </effect>
             <children>
-                <ImageView fx:id="cardType" fitHeight="377.0" fitWidth="207.0" layoutX="10.0" layoutY="14.0" pickOnBounds="true">
+                <ImageView fx:id="cardType" fitHeight="377.0" fitWidth="207.0" layoutX="10.0" layoutY="14.0" onMouseClicked="#onCardClick" pickOnBounds="true">
                     <image>
                         <Image url="@../../../data/images/CARDDISPLAY.PNG" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-            <TextArea fx:id="cardTypeAssignment" editable="false" layoutX="34.0" layoutY="222.0" prefHeight="119.0" prefWidth="157.0" />
+            <TextArea fx:id="cardTypeAssignment" editable="false" layoutX="34.0" layoutY="222.0" opacity="0.0" prefHeight="119.0" prefWidth="157.0" />
+            <Label fx:id="spinnerLabel" layoutX="71.0" layoutY="84.0" opacity="0.0" prefHeight="39.0" prefWidth="120.0" text="Spin the spinner!" textFill="#a41515" />
             </children>
         </AnchorPane>
     </children>

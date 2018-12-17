@@ -1,4 +1,4 @@
-package com.design.main;
+package com.design.main.dice;
 
 public enum DiceRollData {
 

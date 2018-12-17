@@ -1,6 +1,11 @@
 package com.design.main;
 
+import com.design.main.cards.CardData;
+import com.design.main.cards.CardType;
+import com.design.main.dice.DiceRollData;
 import javafx.scene.Cursor;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.*;
 
 import java.util.Random;
@@ -12,6 +17,9 @@ public class MainDisplayController {
     public ImageView secondDiceImage;
     public ImageView firstDiceImage;
     public ImageView spinner;
+
+    public TextArea cardTypeAssignment;
+    public Label spinnerLabel;
 
     private Random random = new Random();
 
@@ -64,7 +72,38 @@ public class MainDisplayController {
         timer.schedule(task, 20, 20);
     }
 
+    private CardData current;
 
+    public void onCardClick() {
+        current = getCardData();
+        cardTypeAssignment.setOpacity(0.0);
+        spinnerLabel.setOpacity(0.0);
+        cardTypeAssignment.setText(current.getAssignment());
+        if(current.getType().equals(CardType.SPINNER)) {
+            spinnerLabel.setText("Spin the spinner");
+        } else {
+            spinnerLabel.setText("");
+        }
+        TimerTask task = new TimerTask() {
+            int tick = 0;
+            @Override
+            public void run() {
+                if(tick == 20) {
+                    cancel();
+                }
+                cardTypeAssignment.setOpacity(cardTypeAssignment.getOpacity() + 0.05);
+                spinnerLabel.setOpacity(spinnerLabel.getOpacity() + 0.05);
+                tick++;
+            }
+        };
+
+        Timer timer = new Timer();
+        timer.schedule(task, 20, 20);
+    }
+
+    private CardData getCardData() {
+        return CardData.values()[random.nextInt(CardData.values().length)];
+    }
 
 }
 
