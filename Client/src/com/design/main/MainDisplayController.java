@@ -23,8 +23,13 @@ public class MainDisplayController {
 
     private Random random = new Random();
 
+    private boolean running = false;
 
     public void onDiceClick() {
+        if(running) {
+            return;
+        }
+        running = true;
         firstDiceImage.setCursor(Cursor.WAIT);
         secondDiceImage.setCursor(Cursor.WAIT);
         TimerTask task = new TimerTask() {
@@ -34,8 +39,8 @@ public class MainDisplayController {
                 if (tick >= 15) {
                     firstDiceImage.setCursor(Cursor.DEFAULT);
                     secondDiceImage.setCursor(Cursor.DEFAULT);
+                    running = false;
                     cancel();
-
                 }
                 firstDiceImage.setRotate(random.ints(-60, 55).iterator().nextInt());
                 secondDiceImage.setRotate(random.ints(-70, 65).iterator().nextInt());
@@ -54,17 +59,21 @@ public class MainDisplayController {
     }
 
     public void onSpinnerClick(){
+        if(running) {
+            return;
+        }
+        running = true;
         TimerTask task = new TimerTask() {
             int counter = 0;
             @Override
             public void run() {
                 if(counter == 33) {
+                    running = false;
                     cancel();
                 }
                 int x = random.ints(20, 30).iterator().nextInt();
                 spinner.setRotate(spinner.getRotate() + x);
                 counter++;
-
             }
         };
 
@@ -75,6 +84,10 @@ public class MainDisplayController {
     private CardData current;
 
     public void onCardClick() {
+        if(running) {
+            return;
+        }
+        running = true;
         current = getCardData();
         cardTypeAssignment.setOpacity(0.0);
         spinnerLabel.setOpacity(0.0);
@@ -89,6 +102,7 @@ public class MainDisplayController {
             @Override
             public void run() {
                 if(tick == 20) {
+                    running = false;
                     cancel();
                 }
                 cardTypeAssignment.setOpacity(cardTypeAssignment.getOpacity() + 0.05);
